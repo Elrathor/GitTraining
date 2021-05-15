@@ -1,3 +1,5 @@
+![Git Logo](https://git-scm.com/images/logos/downloads/Git-Logo-2Color.png)
+
 # Introduction to git
 Some parts of the following information are targeted to a windows user, although most of it can be applied to any other operating system in a modified form.
 
