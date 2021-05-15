@@ -1,15 +1,25 @@
 package main
 
 import (
-	"complex-demo/m/v2/models"
 	"fmt"
 
 	"github.com/alecthomas/kong"
 	"github.com/bwmarrin/snowflake"
 )
 
+var CLI struct {
+	Generate struct {
+		Count int `arg name:"count" help:"Number of ids to generate`
+	} `cmd help:"Generate SnowflakeIDs.`
+
+	GenerateFile struct {
+		Count int    `arg name:"count" help:"Number of ids to generate`
+		Path  string `arg name:"path" help:"The location to generate the file to" type:"path"`
+	} `cmd help:"Generate SnowflakeIDs to file.`
+}
+
 func main() {
-	ctx := kong.Parse(&models.CLI)
+	ctx := kong.Parse(&CLI)
 
 	node, err := snowflake.NewNode(1)
 	if err != nil {
